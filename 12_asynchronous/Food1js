@@ -1,0 +1,102 @@
+function placeOrder(food, callback) {
+
+    setTimeout(() => {
+        console.log(`${food} Order Placed`);
+        callback(null, food);
+    }, 1000);
+
+}
+
+function restaurantAccept(food, callback) {
+
+    setTimeout(() => {
+        console.log(`Restaurant Accepted ${food} Order`);
+        callback(null, food);
+    }, 1000);
+
+}
+
+function prepareFood(food, callback) {
+
+    setTimeout(() => {
+        console.log(`${food} is Preparing`);
+        callback(null, food);
+    }, 2000);
+
+}
+
+function assignDelivery(food, callback) {
+
+    setTimeout(() => {
+        console.log("Delivery Partner Assigned");
+        callback(null, food);
+    }, 1000);
+
+}
+
+function deliverFood(food, callback) {
+
+    setTimeout(() => {
+        console.log(`${food} Delivered Successfully`);
+        callback(null, food);
+    }, 1000);
+
+}
+
+
+// Callback Hell
+
+placeOrder("Gathiya", (err, food) => {
+
+    if (err) {
+        console.log(err);
+    }
+    else {
+
+        restaurantAccept(food, (err, food) => {
+
+            if (err) {
+                console.log(err);
+            }
+            else {
+
+                prepareFood(food, (err, food) => {
+
+                    if (err) {
+                        console.log(err);
+                    }
+                    else {
+
+                        assignDelivery(food, (err, food) => {
+
+                            if (err) {
+                                console.log(err);
+                            }
+                            else {
+
+                                deliverFood(food, (err, food) => {
+
+                                    if (err) {
+                                        console.log(err);
+                                    }
+                                    else {
+                                        console.log("Order Completed");
+                                    }
+
+                                });
+
+                            }
+
+                        });
+
+                    }
+
+                });
+
+            }
+
+        });
+
+    }
+
+});
