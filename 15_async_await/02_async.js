@@ -63,3 +63,125 @@ async function bookMovieTicket() {
 }
 
 bookMovieTicket();
+
+
+// ex2
+
+
+function selectProduct(product) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log(`Product Selected: ${product}`);
+            resolve(product);
+        }, 1000);
+    });
+}
+
+function makePayment(product) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log(`Payment Successful for ${product}`);
+            resolve(product);
+        }, 1500);
+    });
+}
+
+function shipProduct(product) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log(`${product} Shipped`);
+            resolve("Shopping Completed");
+        }, 1000);
+    });
+}
+
+async function shopping() {
+    const product = await selectProduct("Laptop");
+    const payment = await makePayment(product);
+    const result = await shipProduct(payment);
+
+    console.log(result);
+}
+
+shopping();
+
+
+
+// ex3
+
+function selectTrain(trainName) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log(`Train Selected: ${trainName}`);
+            resolve("S5-21");
+        }, 1000);
+    });
+}
+
+function payFare(seatNo) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log(`Payment Done for Seat ${seatNo}`);
+            resolve(seatNo);
+        }, 1500);
+    });
+}
+
+function generateTicket(seatNo) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log("Train Ticket Generated");
+            resolve("Journey Confirmed");
+        }, 1000);
+    });
+}
+
+async function bookTrainTicket() {
+    const seat = await selectTrain("Rajdhani Express");
+    await payFare(seat);
+    const result = await generateTicket(seat);
+
+    console.log(result);
+}
+
+bookTrainTicket();
+
+
+// ex4
+
+function orderFood(foodName) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log(`Food Ordered: ${foodName}`);
+            resolve(foodName);
+        }, 1000);
+    });
+}
+
+function prepareFood(foodName) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log(`${foodName} is Ready`);
+            resolve(foodName);
+        }, 2000);
+    });
+}
+
+function deliverFood(foodName) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log(`${foodName} Delivered`);
+            resolve("Order Completed");
+        }, 1000);
+    });
+}
+
+async function foodOrder() {
+    const food = await orderFood("Pizza");
+    const ready = await prepareFood(food);
+    const result = await deliverFood(ready);
+
+    console.log(result);
+}
+
+foodOrder();
