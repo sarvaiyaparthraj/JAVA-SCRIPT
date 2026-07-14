@@ -99,9 +99,13 @@ function showProduct() {
 
             <p>Quantity : ${e.quantity}</p>
 
-            <button class="btn btn-primary w-100">
-              More Information
-            </button>
+            <button
+class="btn btn-success w-100"
+onclick="addToCart(${carItems.indexOf(e)})">
+Add To Cart
+</button>
+
+
 
           </div>
 
@@ -130,3 +134,52 @@ localStorage.setItem("data", JSON.stringify(data));
 const user = JSON.parse(localStorage.getItem("data"));
 
 console.log(user);
+
+
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+updateCartCount();
+
+function addToCart(index){
+
+    let product = carItems[index];
+
+    let exist = cart.find(item => item.name === product.name);
+
+    if(exist){
+
+        exist.quantity++;
+
+    }else{
+
+        cart.push({
+            ...product
+        });
+
+    }
+
+    localStorage.setItem("cart",JSON.stringify(cart));
+
+    updateCartCount();
+
+    alert("Product Added Successfully");
+
+}
+
+function updateCartCount(){
+
+    document.getElementById("cart-count").innerHTML = cart.length;
+
+}
+function updateCartCount(){
+
+    let count = document.getElementById("cart-count");
+
+    if(count){
+
+        count.innerHTML = cart.length;
+
+    }
+
+}

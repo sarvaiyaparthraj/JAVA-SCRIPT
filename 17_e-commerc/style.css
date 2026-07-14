@@ -2,9 +2,132 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
-.product-card{
-    width: 250px;
-    align-items: center;
+body{
+    background: linear-gradient(135deg,#0f172a,#1e293b,#334155);
+    min-height: 100vh;
+}
+
+/* Navbar */
+
+.navbar{
+    background: rgba(255,255,255,.08)!important;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,.1);
+    padding: 15px 25px;
+}
+
+.navbar-brand{
+    color: #fff !important;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.nav-link{
+    color: white !important;
+    font-weight: 500;
+    margin: 0 12px;
+    transition: .3s;
+}
+
+.nav-link:hover{
+    color: gold !important;
+}
+
+.form-control{
+    border-radius: 30px !important;
+}
+
+.btn-outline-success{
+    border-radius: 30px !important;
+    padding: 8px 22px !important;
+}
+
+/* Product Section */
+
+#product-list{
+    margin-top: 40px;
+}
+
+/* Card */
+
+.card{
+    border: none !important;
+    border-radius: 20px !important;
+    overflow: hidden;
+    background: rgba(255,255,255,.08)!important;
+    backdrop-filter: blur(10px);
+    color: white;
+    transition: .4s;
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+
+.card:hover{
+    transform: translateY(-12px) scale(1.03);
+    box-shadow:0 20px 40px rgba(255,215,0,.3);
+}
+
+.card img{
+    height:230px;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.card:hover img{
+    transform:scale(1.08);
+}
+
+.card-title{
+    font-size:22px;
+    font-weight:700;
+}
+
+.card-text{
+    font-size:22px;
+    color:#00ff84 !important;
+    font-weight:bold;
+}
+
+.card-body p{
+    color:#ddd;
+}
+
+/* Button */
+
+.btn-success{
+    background:linear-gradient(45deg,#ffb703,#ff6b00)!important;
+    border:none!important;
+    font-weight:bold;
+    border-radius:30px!important;
+    padding:12px!important;
+    transition:.4s;
+}
+
+.btn-success:hover{
+    transform:scale(1.05);
+    background:linear-gradient(45deg,#ffd60a,#ff8800)!important;
+}
+
+/* Badge */
+
+#cart-count{
+    font-size:13px;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:gold;
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-track{
+    background:#1e293b;
 }
